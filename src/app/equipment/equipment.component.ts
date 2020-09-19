@@ -9,6 +9,7 @@ import { EquipmentService } from '../equipment.service';
 export class EquipmentComponent implements OnInit {
 
   equipmentList: Array<[]>;
+  // im stoping here , about 1 hour just learning how Angular Works
   expanded?: boolean = false;
 
   constructor(private _http: EquipmentService) { }
