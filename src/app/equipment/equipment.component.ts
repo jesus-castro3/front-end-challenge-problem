@@ -9,8 +9,10 @@ import { EquipmentService } from '../equipment.service';
 export class EquipmentComponent implements OnInit {
 
   equipmentList: Array<[]>;
+  expanded?: boolean = false;
 
   constructor(private _http: EquipmentService) { }
+
 
   ngOnInit() {
     this._http.getEquipment().subscribe( (data: []) => {

@@ -1,17 +1,20 @@
 <main class="container">
   <ul class="equipment-list" *ngIf="equipmentList">
-    <li *ngFor="let e of equipmentList">
+    <li *ngFor="let e of equipmentList" 
+        (click)="expanded = !expanded"
+        [ngClass]="{ 'equipment-missing-data ': !e.equipment_type || !e.manufacturer }">
       <div class="equipment-photo" *ngIf="e.equipment_photos">
         <img src="{{e.equipment_photos[0].thumbnail_url}}" alt="equipment photo">
       </div>
       <div class="equipment-description">
         <p>{{ e.description }}</p>
-        <span class="tag__type">{{ e.equipment_type}}</span>
-        <span class="tag__manufacturer">{{ e.manufacturer}}</span>
+        <span *ngIf="e.equipment_type" class="tag tag__type">{{ e.equipment_type }}</span>
+        <span *ngIf="e.manufacturer"class="tag tag__manufacturer">{{ e.manufacturer }}</span>
       </div>
       <div class="equipment-action">
         <button>X</button>
       </div>
+      <span *ngIf="expanded">I show now</span>
     </li>
   </ul>
 </main>
